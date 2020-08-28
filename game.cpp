@@ -1,9 +1,8 @@
 #include <iostream>
 
-int main() 
+void PlayGame()
 {
-
-  // Declare and assign numbers to variables
+  // Declare and assign numbers to codes
   const int CodeX = 2;
   const int CodeY = 3;
   const int CodeZ = 6;
@@ -13,18 +12,18 @@ int main()
 
   // Print the code product and sum to the terminal 
   std::cout << "You wake up in a small room unsure of how you got there...\n";
-  std::cout << "The only feature is a door with a small terminal next to it. \n";
+  std::cout << "The only feature is a door with a small terminal next to it. \n\n";
   std::cout << "The terminal reads: \"Enter the Code * * *\"";
   std::cout << "\n~ The sum of * * * is " << CodeSum;
   std::cout << "\n~ The product of * * * is " << CodeProduct << std::endl;
 
   // Store user guesses
   int GuessX, GuessY, GuessZ;
-  std::cout << "~ *: ";
+  std::cout << "> ";
   std::cin >> GuessX;
-  std::cout << "~ *: ";
+  std::cout << "> ";
   std::cin >> GuessY;
-  std::cout << "~ *: ";
+  std::cout << "> ";
   std::cin >> GuessZ; 
 
   int GuessSum = GuessX + GuessY + GuessZ;
@@ -33,13 +32,24 @@ int main()
   // Determine if the player won or lost
   if (GuessSum == CodeSum && GuessProduct == CodeProduct)
   {
-    std::cout << "You win!";
+    std::cout << "\nYou win!";
   }
   else 
   {
-    std::cout << "You lose!";
+    std::cout << "\nYou lose!";
   }
+}
 
-  // return statement here 
+
+int main() 
+{
+  while (true)
+  {
+    bool bLevelComplete;
+    PlayGame();
+    std::cin.clear(); // Clear errors
+    std::cin.ignore(); // Discard buffer
+  }
+  
   return 0;
 }
